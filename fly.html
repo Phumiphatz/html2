@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./simpleGame.js"></script>
+    <script>
+        var scene;
+        var fly
+
+        function Fly() {
+            tFly = new Sprite(scene, "./humanwithring.png", 60, 60);
+            tFly.setSpeed(10);
+            tFly.wriggle = function () {
+                newDir = ((Math.random() * 90) - 45)
+                this.changeAngleBy(newDir);
+            }
+            return tFly;
+        }
+
+        function init() {
+            scene = new Scene();
+            fly1= new Fly();
+            fly2 = new Fly();
+            fly3 = new Fly();
+            scene.setBG("green");
+
+            scene.start();
+        }
+
+        function update() {
+            scene.clear();
+            fly1.update();
+            fly1.wriggle();
+
+            fly2.update();
+            fly2.wriggle();
+            
+            fly3.update();
+            fly3.wriggle();
+
+        }
+    </script>
+</head>
+
+<body onload="init()">
+
+</body>
+
+</html>
